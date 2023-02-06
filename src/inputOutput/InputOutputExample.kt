@@ -47,7 +47,7 @@ private fun endAnswer() {
 }
 
 private fun incorrectCommand() {
-    println("Такой команды не существует!\nВведи $HELP, если ты хочешь знать, какие команды доступны.")
+    println("Такой команды не существует!\nВведи $HELP, если ты хочешь узнать, какие команды доступны.")
 }
 
 class MyCommands {
