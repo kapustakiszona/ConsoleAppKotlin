@@ -28,46 +28,46 @@ class Manager {
 
     fun returnCarFromParkingPlace(ownerName: String) {
         lateinit var myCar: String
+        var found = false
         for ((key, value) in parking.places) {
 
             if (value?.ownerName == ownerName) {
                 myCar = value.toString()
                 parking.places[key] = Parking.makePlaceFree()
                 println("$myCar уехала!")
-                break
-            } else {
-                println("Неверное имя!")
+                found = true
                 break
             }
         }
+        if (!found) println("Неверное имя!")
     }
 
     fun showParkingPlaceByNumber(number: String) {
         lateinit var myPlace: String
+        var found = false
         for ((key, value) in parking.places) {
             if (value?.getCarNumber() == number) {
                 myPlace = key
                 println("Машина припаркована на месте $myPlace")
-                break
-            } else {
-                println("Номер неверный либо не существует!")
+                found = true
                 break
             }
         }
+        if (!found) println("Номер неверный либо не существует!")
     }
 
     fun showCarInfoByParkingPlace(place: String) {
         lateinit var myCar: String
+        var found = false
         for ((key, value) in parking.places) {
             if (key == place) {
                 myCar = value.toString()
                 println("На месте $place находится $myCar")
-                break
-            } else {
-                println("Место свободно либо неверно указано!")
+                found = true
                 break
             }
         }
+        if (!found) println("Место свободно либо неверно указано!")
     }
 
 

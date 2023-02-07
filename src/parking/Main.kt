@@ -42,7 +42,9 @@ fun main() {
             CURRENT_STAT -> {
                 manager.printStatistic()
             }
-            else -> println(ERROR)
+            else ->{
+                println(ERROR)
+            }
         }
     }
 
