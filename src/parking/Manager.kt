@@ -1,10 +1,12 @@
 package parking
 
+import parking.Command.Companion.CURRENT_STAT
 import parking.Command.Companion.HELP
 import parking.Command.Companion.PARK
 import parking.Command.Companion.RETURN
 import parking.Command.Companion.SHOW_CAR_INFO
 import parking.Command.Companion.SHOW_PLACE
+import parking.Command.Companion.STAT
 
 class Manager {
     private val parking = Parking
@@ -77,7 +79,9 @@ class Manager {
                     " используя имя и фамилию владельца\n" +
                     "-$SHOW_CAR_INFO - показать информацию о автомобиле, используя номер парковочного места\n" +
                     "-$SHOW_PLACE - показать место, на котором припаркован автомобиль, используя номер\n" +
-                    "-$HELP - получить информацию о всех доступных операциях"
+                    "-$HELP - получить информацию о всех доступных операциях\n" +
+                    "-$STAT - вывести информацию о всех припаркованных автомобилях за текущий сеанс\n" +
+                    "-$CURRENT_STAT - вывести статистику о припаркованных машинах"
         )
     }
 
