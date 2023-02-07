@@ -8,15 +8,19 @@ import parking.Command.Companion.SHOW_PLACE
 
 class Manager {
     private val parking = Parking
+    private var statistics: Int = 0
 
 
     fun addCarToParkingPlace(car: Car) {
         if (car.mark == "Unknown") {
             println("Ошибка! Некорректные данные.")
+        } else if (isCarParked(car)) {
+            println("Такая машина уже припаркована!")
         } else {
             val key = parking.findFreePlace()
             parking.places[key] = car
             println("$car припаркована на место $key")
+            ++statistics
         }
     }
 
@@ -79,5 +83,20 @@ class Manager {
 
     fun printParkingInfo() {
         parking.getInfo()
+    }
+
+    fun printStatistic() {
+        println("За текущий сеанс было припарковано: $statistics автомобилей")
+    }
+
+    private fun isCarParked(car: Car): Boolean {
+        var result = false
+        for ((key, value) in parking.places) {
+            if (car == value) {
+                result = true
+                break
+            }
+        }
+        return result
     }
 }
