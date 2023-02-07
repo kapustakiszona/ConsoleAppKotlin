@@ -1,0 +1,13 @@
+package parking
+
+class Command {
+
+    companion object {
+        const val PARK = "/park"
+        const val RETURN = "/return"
+        const val SHOW_PLACE = "/show_place"
+        const val SHOW_CAR_INFO = "/show_car"
+        const val HELP = "/help"
+    }
+
+}
