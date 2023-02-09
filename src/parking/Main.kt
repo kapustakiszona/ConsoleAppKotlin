@@ -1,10 +1,13 @@
 package parking
 
+import parking.Command.Companion.CURRENT_STAT
+import parking.Command.Companion.ERROR
 import parking.Command.Companion.HELP
 import parking.Command.Companion.PARK
 import parking.Command.Companion.RETURN
 import parking.Command.Companion.SHOW_CAR_INFO
 import parking.Command.Companion.SHOW_PLACE
+import parking.Command.Companion.STAT
 import java.util.*
 
 fun main() {
@@ -33,6 +36,15 @@ fun main() {
             HELP -> {
                 manager.printHelp()
             }
+            STAT -> {
+                manager.printParkingInfo()
+            }
+            CURRENT_STAT -> {
+                manager.printStatistic()
+            }
+            else ->{
+                println(ERROR)
+            }
         }
     }
 
@@ -51,7 +63,7 @@ fun initialized(scanner: Scanner): Car {
     car.color = values[1]
     car.number = values[2]
     car.ownerName = values.drop(3).joinToString(" ")
-    if (car.ownerName != car.owner.name){
+    if (car.ownerName != car.owner.name) {
         car.owner.name = car.ownerName
     }
     return car

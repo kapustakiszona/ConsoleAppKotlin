@@ -1,6 +1,6 @@
 package parking
 
-class Car(var mark: String, var color: String, var number: String, var ownerName: String) {
+data class Car(var mark: String, var color: String, var number: String, var ownerName: String) {
     constructor() : this("Unknown", "Unknown", "Unknown", "Unknown")
 
     val owner = Owner(ownerName)
@@ -10,7 +10,10 @@ class Car(var mark: String, var color: String, var number: String, var ownerName
         return number
     }
 
+
     override fun toString(): String {
         return "Машина $mark $color $number"
     }
+
+
 }
